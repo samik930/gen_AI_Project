@@ -1,0 +1,4 @@
+Backend/.env
+.kilo/
+.kilocode/
+backend_error.log
