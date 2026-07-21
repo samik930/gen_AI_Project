@@ -10,7 +10,7 @@ require("dotenv").config();
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: "https://gen-ai-project-5w4j.onrender.com/",
+    origin: "https://gen-ai-project-5w4j.onrender.com",
     credentials :  true
 }))
 
