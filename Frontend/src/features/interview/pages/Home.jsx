@@ -29,7 +29,7 @@ const Home = () => {
 
         if (fieldsProvided === 1 || fieldsProvided === 0) { alert('Debug: Report generation skipped. Please provide required fields'); return; } // Exit early without generating report }
         const response = await generateReport({ jobDescription, selfDescription, resumeFile })
-        console.log(response)
+        //console.log(response)
         if (response?.interviewReport?._id) {
             navigate(`/interview/${response.interviewReport._id}`)
         } else {
