@@ -28,9 +28,13 @@ const Home = () => {
         }
 
         if (fieldsProvided === 1 || fieldsProvided === 0) { alert('Debug: Report generation skipped. Please provide required fields'); return; } // Exit early without generating report }
-        const data = await generateReport({ jobDescription, selfDescription, resumeFile })
-        console.log(data)
-        navigate(`/interview/${data._id}`)
+        const response = await generateReport({ jobDescription, selfDescription, resumeFile })
+        console.log(response)
+        if (response?.interviewReport?._id) {
+            navigate(`/interview/${response.interviewReport._id}`)
+        } else {
+            alert('Failed to generate interview plan. Please try again.')
+        }
     }
 
     if (loading) {
@@ -181,7 +185,7 @@ const Home = () => {
             <section className='recent-reports'>
                 <h2>My Recent Interview Plans</h2>
                 <ul className='reports-list'>
-                    {reports.map(report => (
+                    {reports?.filter(report => report?._id).map(report => (
                         <li key={report._id} className='report-item' onClick={() => navigate(`/interview/${report._id}`)}>
                             <h3>{report.title || 'Untitled Position'}</h3>
                             <p className='report-meta'>Generated on {new Date(report.createdAt).toLocaleDateString()}</p>
