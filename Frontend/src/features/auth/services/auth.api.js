@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: "https://gen-ai-project-5w4j.onrender.com",
+    baseURL: "https://interview-ai-backend-zui2.onrender.com",
     withCredentials: true
 })
 
