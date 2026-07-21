@@ -10,7 +10,7 @@ require("dotenv").config();
 app.use(express.json())
 app.use(cookieParser())
 app.use(cors({
-    origin: process.env.CLIENT_URL,
+    origin: "https://interview-ai-backend-zui2.onrender.com",
     credentials :  true
 }))
 
